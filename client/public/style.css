@@ -21,4 +21,10 @@ textarea{resize: none;}
 
 body{
     font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 6%;
+}
+
+.el {
+    padding: 10px;
 }

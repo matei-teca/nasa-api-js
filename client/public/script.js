@@ -1,20 +1,4 @@
 
-
-
-// const divElement = function (content){
-//   return `<div>${content}</div>`;
-// }
-
-// const imgElement = function (link){
-//   return `<img src="${link}" alt="Girl in a jacket" width="500" height="600">`;
-// }
-
-// const iframeElement = function (link){
-//   return `<iframe src="${link}" title="W3Schools Free Online Web Tutorials"></iframe>`;
-// }
-
-
-
 async function fetchData(){
 
   let apiNasaKey = "DEMO_KEY";
@@ -33,7 +17,40 @@ const todayPostElement = (myData) => {
 
   let h1 = document.createElement('h1');
 	h1.textContent = "Astronomy Picture of the Day";
+  h1.className = "el";
 	rootEl.appendChild(h1);
+
+  let p3 = document.createElement('p');
+	p3.textContent = "Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.";
+  p3.className = "el";
+	rootEl.appendChild(p3);
+
+  let p = document.createElement('p');
+	p.textContent = myData.date;
+  p.className = "el";
+	rootEl.appendChild(p);
+
+  let img = document.createElement('img');
+  img.className = "el";
+	img.src = myData.url;
+
+  let iframe = document.createElement('iframe');
+  iframe.className = "el";
+	iframe.src = myData.hdurl;
+
+  myData.media_type === "image" ? 
+  rootEl.appendChild(img) : 
+  rootEl.appendChild(iframe);
+
+  let h2 = document.createElement('h2');
+	h2.textContent = myData.title;
+  h2.className = "el";
+	rootEl.appendChild(h2);
+
+  let p2 = document.createElement('p');
+	p2.innerHTML = "<b>Explanation: </b>" + myData.explanation;
+  p2.className = "el";
+	rootEl.appendChild(p2);
 
 }
 
