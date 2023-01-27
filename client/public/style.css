@@ -33,11 +33,29 @@ body{
     padding: 10px;
 }
 
-img {
+input {
+    margin-top: 15px;
+}
+
+.mainImgLarge {
+    /* background-color: red; */
+    padding: 10px;
+    height: 100vh;
+    width: auto;
     margin-top: 25px;
     margin-bottom: 50px;
     transition: 1s;
 }
+
+.mainImgSmall {
+    background-color: green;
+    height: 300px;
+    width: auto;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    transition: 1s;
+}
+
 
 img:hover{
     border: 1px solid rgb(119, 3, 3);
@@ -46,9 +64,25 @@ img:hover{
     transition: 1s;
 }
 
-input {
-    margin-top: 15px;
+/* #sectionA {
+    background-color: red;
+    position: absolute;
+    top: -600px;
+    left: 0;
+    width: 100%
+
 }
+
+#sectionBottom {
+    background-color: green;
+    position: absolute;
+    top: 1000px;
+    left: 0;
+    bottom: 400px;
+    width: 100%
+} 
+*/
+
 
 /* img{
 

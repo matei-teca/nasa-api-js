@@ -18,25 +18,31 @@ async function fetchData(){
 }
 
 const todayPostElement = (myData) => { 
+  let imgSize = true;
+
   const rootEl = document.getElementById("root");
   rootEl.innerHTML = "";
+
+  let sectionA = document.createElement('section');
+  sectionA.id = "sectionA";
+  rootEl.appendChild(sectionA);
 
   let h1 = document.createElement('h1');
 	h1.textContent = "Astronomy Picture of the Day";
   h1.className = "el";
-	rootEl.appendChild(h1);
+	sectionA.appendChild(h1);
 
   let p3 = document.createElement('p');
 	p3.textContent = "Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.";
   p3.className = "el";
-	rootEl.appendChild(p3);
+	sectionA.appendChild(p3);
 
   // let p = document.createElement('p');
 	// p.textContent = myData.date;
   // p.className = "el";
 	// rootEl.appendChild(p);
   let divWrapInput = document.createElement('div');
-  rootEl.appendChild(divWrapInput);
+  sectionA.appendChild(divWrapInput);
 
   let input = document.createElement('input');
   input.id = "dateInput";
@@ -47,9 +53,10 @@ const todayPostElement = (myData) => {
 
   let img = document.createElement('img');
   img.className = "el";
-  img.id = "img";
-  img.style.height = "100vh";
-  img.style.maxWidth = "80vw";
+  img.id = "mainImg";
+  img.className = "mainImgLarge";
+  // img.style.height = "100vh";
+  // img.style.maxWidth = "80vw";
 	img.src = myData.url;
 
   let iframe = document.createElement('iframe');
@@ -59,18 +66,22 @@ const todayPostElement = (myData) => {
 	iframe.src = myData.url;
 
   myData.media_type === "image" ? 
-  rootEl.appendChild(img) : 
-  rootEl.appendChild(iframe);
+  sectionA.appendChild(img) : 
+  sectionA.appendChild(iframe);
+
+  let sectionB = document.createElement('section');
+  sectionB.id = "sectionBottom";
+  rootEl.appendChild(sectionB);
 
   let h2 = document.createElement('h2');
 	h2.textContent = myData.title;
   h2.className = "el";
-	rootEl.appendChild(h2);
+	sectionB.appendChild(h2);
 
   let p2 = document.createElement('p');
 	p2.innerHTML = "<b>Explanation: </b>" + myData.explanation;
   p2.className = "el";
-	rootEl.appendChild(p2);
+	sectionB.appendChild(p2);
 
   // let divWow = document.createElement('div');
 	// divWow.innerHTML = "Wanna see?";
@@ -83,18 +94,36 @@ const todayPostElement = (myData) => {
     fetchData();
 
     window.scrollTo({
-      top: 192,
+      top: 180,
       left: 0,
       behavior: 'smooth'
     });
     setTimeout(function(){
       window.scrollTo({
-        top: 1000,
+        top: 3000,
         left: 0,
         behavior: 'smooth'
       });
+
+      setTimeout(function(){
+        const imgEl = document.getElementById("mainImg");
+        imgEl.className = "mainImgSmall";
+        imgSize = true;
+        
+      }, 1000)
     }, 3000)
   })
+
+  const imgEl = document.getElementById("mainImg");
+
+  imgEl.addEventListener("click", function(){
+    imgSize = !imgSize;
+
+    imgSize ? 
+    imgEl.className = "mainImgLarge" :
+    imgEl.className = "mainImgSmall" 
+  })
+
 }
 
 
