@@ -53,7 +53,9 @@ const todayPostElement = (myData) => {
 
   let iframe = document.createElement('iframe');
   iframe.className = "el";
-	iframe.src = myData.hdurl;
+  iframe.height = "600vh"
+  iframe.width = "1000vw"
+	iframe.src = myData.url;
 
   myData.media_type === "image" ? 
   rootEl.appendChild(img) : 
