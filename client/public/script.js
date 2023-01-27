@@ -48,7 +48,8 @@ const todayPostElement = (myData) => {
   let img = document.createElement('img');
   img.className = "el";
   img.id = "img";
-  img.style.height = "100vh"
+  img.style.height = "100vh";
+  img.style.maxWidth = "80vw";
 	img.src = myData.url;
 
   let iframe = document.createElement('iframe');
@@ -82,17 +83,17 @@ const todayPostElement = (myData) => {
     fetchData();
 
     window.scrollTo({
-      top: 220,
+      top: 192,
       left: 0,
       behavior: 'smooth'
     });
     setTimeout(function(){
       window.scrollTo({
-        top: 0,
+        top: 1000,
         left: 0,
         behavior: 'smooth'
       });
-    }, 2000)
+    }, 3000)
   })
 }
 
