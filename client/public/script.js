@@ -1,9 +1,14 @@
+let today = new Date();
+today = today.getFullYear() + "-" + today.getMonth()+1 + "-" + today.getDate();
+
+let currDate = new Date();
+currDate = currDate.getFullYear() + "-" + currDate.getMonth()+1 + "-" + currDate.getDate();
 
 async function fetchData(){
 
   let apiNasaKey = "DEMO_KEY";
 
-  const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiNasaKey}`);
+  const response = await fetch(`https://api.nasa.gov/planetary/apod?date=${currDate}&api_key=${apiNasaKey}`);
   const data = await response.json();
 
   console.log(data);
@@ -14,6 +19,7 @@ async function fetchData(){
 
 const todayPostElement = (myData) => { 
   const rootEl = document.getElementById("root");
+  rootEl.innerHTML = "";
 
   let h1 = document.createElement('h1');
 	h1.textContent = "Astronomy Picture of the Day";
@@ -25,10 +31,17 @@ const todayPostElement = (myData) => {
   p3.className = "el";
 	rootEl.appendChild(p3);
 
-  let p = document.createElement('p');
-	p.textContent = myData.date;
-  p.className = "el";
-	rootEl.appendChild(p);
+  // let p = document.createElement('p');
+	// p.textContent = myData.date;
+  // p.className = "el";
+	// rootEl.appendChild(p);
+
+  let input = document.createElement('input');
+  input.id = "dateInput";
+  input.type = "date";
+  input.value = currDate;
+  input.max = today;
+  rootEl.appendChild(input);
 
   let img = document.createElement('img');
   img.className = "el";
@@ -52,6 +65,11 @@ const todayPostElement = (myData) => {
   p2.className = "el";
 	rootEl.appendChild(p2);
 
+  input.addEventListener("change", function(e){
+    currDate = e.target.value;
+    console.log(currDate);
+    fetchData();
+  })
 }
 
 
