@@ -6,7 +6,7 @@ currDate = currDate.getFullYear() + "-" + currDate.getMonth()+1 + "-" + currDate
 
 async function fetchData(){
 
-  let apiNasaKey = "DEMO_KEY";
+  let apiNasaKey = "HFxD3gjtR7pyRegNpLer94idRsEqRxtsVtJPYCI1";
 
   const response = await fetch(`https://api.nasa.gov/planetary/apod?date=${currDate}&api_key=${apiNasaKey}`);
   const data = await response.json();
@@ -35,16 +35,20 @@ const todayPostElement = (myData) => {
 	// p.textContent = myData.date;
   // p.className = "el";
 	// rootEl.appendChild(p);
+  let divWrapInput = document.createElement('div');
+  rootEl.appendChild(divWrapInput);
 
   let input = document.createElement('input');
   input.id = "dateInput";
   input.type = "date";
   input.value = currDate;
   input.max = today;
-  rootEl.appendChild(input);
+  divWrapInput.appendChild(input);
 
   let img = document.createElement('img');
   img.className = "el";
+  img.id = "img";
+  img.style.height = "100vh"
 	img.src = myData.url;
 
   let iframe = document.createElement('iframe');
@@ -65,10 +69,28 @@ const todayPostElement = (myData) => {
   p2.className = "el";
 	rootEl.appendChild(p2);
 
+  // let divWow = document.createElement('div');
+	// divWow.innerHTML = "Wanna see?";
+  // divWow.id = "wow";
+	// rootEl.appendChild(divWow);
+
   input.addEventListener("change", function(e){
     currDate = e.target.value;
     console.log(currDate);
     fetchData();
+
+    window.scrollTo({
+      top: 220,
+      left: 0,
+      behavior: 'smooth'
+    });
+    setTimeout(function(){
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }, 2000)
   })
 }
 

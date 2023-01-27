@@ -23,10 +23,31 @@ body{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     /* display: flex;
-    justify-content: center; */
+    justify-content: center;
+    align-items: center; */
     padding: 6%;
 }
 
 .el {
     padding: 10px;
 }
+
+/* img{
+
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 80vw;
+    height: 100vh;
+    transition: all 1s;
+} */
+
+
+/* img{
+
+    margin-top: -200px;
+    margin-left: -200px;
+    width: 130vw;
+    height: 130vh;
+    transition: all 1s; 
+}
+    */
