@@ -4,6 +4,8 @@ today = today.getFullYear() + "-" + today.getMonth()+1 + "-" + today.getDate();
 let currDate = new Date();
 currDate = currDate.getFullYear() + "-" + currDate.getMonth()+1 + "-" + currDate.getDate();
 
+let notFirstTime = false;
+
 async function fetchData(){
 
   let apiNasaKey = "HFxD3gjtR7pyRegNpLer94idRsEqRxtsVtJPYCI1";
@@ -93,11 +95,16 @@ const todayPostElement = (myData) => {
     console.log(currDate);
     fetchData();
 
-    window.scrollTo({
-      top: 180,
-      left: 0,
-      behavior: 'smooth'
-    });
+    imgEl.className = "mainImgLarge";
+
+    setTimeout(function(){
+      window.scrollTo({
+        top: 180,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }, notFirstTime ? 600 : 0)
+
     setTimeout(function(){
       window.scrollTo({
         top: 3000,
@@ -108,9 +115,11 @@ const todayPostElement = (myData) => {
       setTimeout(function(){
         const imgEl = document.getElementById("mainImg");
         imgEl.className = "mainImgSmall";
+        notFirstTime = true;
         imgSize = true;
+        console.log(notFirstTime);
         
-      }, 1000)
+      }, 100)
     }, 3000)
   })
 
@@ -121,7 +130,9 @@ const todayPostElement = (myData) => {
 
     imgSize ? 
     imgEl.className = "mainImgLarge" :
-    imgEl.className = "mainImgSmall" 
+    imgEl.className = "mainImgSmall"; notFirstTime = true
+
+    console.log(notFirstTime);
   })
 
 }
