@@ -39,7 +39,7 @@ input {
 
 .mainImgLarge {
     /* background-color: red; */
-    padding: 10px;
+    padding: 50px;
     height: 100vh;
     width: auto;
     margin-top: 25px;
@@ -55,6 +55,10 @@ input {
     margin-bottom: 50px;
     transition: 1s;
 }
+
+/* img{
+    border-radius: 5%;
+} */
 
 
 img:hover{

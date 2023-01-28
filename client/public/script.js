@@ -20,7 +20,7 @@ async function fetchData(){
 }
 
 const todayPostElement = (myData) => { 
-  let imgSize = true;
+  let imgSize;
 
   const rootEl = document.getElementById("root");
   rootEl.innerHTML = "";
@@ -116,8 +116,7 @@ const todayPostElement = (myData) => {
         const imgEl = document.getElementById("mainImg");
         imgEl.className = "mainImgSmall";
         notFirstTime = true;
-        imgSize = true;
-        console.log(notFirstTime);
+        imgSize = false;
         
       }, 100)
     }, 3000)
@@ -128,11 +127,12 @@ const todayPostElement = (myData) => {
   imgEl.addEventListener("click", function(){
     imgSize = !imgSize;
 
+    console.log(imgSize)
+
     imgSize ? 
     imgEl.className = "mainImgLarge" :
     imgEl.className = "mainImgSmall"; notFirstTime = true
 
-    console.log(notFirstTime);
   })
 
 }
