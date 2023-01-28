@@ -5,6 +5,8 @@ let currDate = new Date();
 currDate = currDate.getFullYear() + "-" + currDate.getMonth()+1 + "-" + currDate.getDate();
 
 let notFirstTime = false;
+let isFirstTime = true;
+let isFirstChangeEv;
 
 async function fetchData(){
 
@@ -91,6 +93,8 @@ const todayPostElement = (myData) => {
 	// rootEl.appendChild(divWow);
 
   input.addEventListener("change", function(e){
+    isFirstChangeEv = true;
+
     const imgEl = document.getElementById("mainImg");
     currDate = e.target.value;
     console.log(currDate);
@@ -105,9 +109,12 @@ const todayPostElement = (myData) => {
         behavior: 'smooth'
       });
     }, notFirstTime ? 600 : 0)
+
+    // isFirstTime = true
+
   })
 
-  if(!notFirstTime){
+  if(isFirstTime && isFirstChangeEv){
     const elToLeave = document.querySelector(".mainImgLarge");
     elToLeave.addEventListener("mouseout", () => {
 
@@ -126,7 +133,12 @@ const todayPostElement = (myData) => {
         
       }, 100)
     }, 1000)
+
+    isFirstTime = false;
+    isFirstChangeEv = false;
   })
+
+
   }
 
   const imgEl = document.getElementById("mainImg");

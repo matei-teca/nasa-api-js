@@ -39,17 +39,15 @@ input {
 }
 
 .mainImgLarge {
-    /* background-color: red; */
     padding: 50px;
     height: 100vh;
     width: auto;
     margin-top: 25px;
     margin-bottom: 50px;
-    transition: 1s;
+    transition: 1.5s;
 }
 
 .mainImgSmall {
-    background-color: green;
     height: 300px;
     width: auto;
     margin-top: 25px;
@@ -66,10 +64,12 @@ input {
     border: 1px solid rgb(119, 3, 3);
     padding: 0px;
     border-radius: 5%;
-    transition: 1s;
+    transition: 3s;
     cursor: url('imgs/satelite.png'), pointer;
     /* cursor: url('imgs/logo.png'), pointer; */
     /* cursor: url('imgs/spaceship.png'), pointer; */
+
+    /* transition-delay: 1s; */
 
 }
 
