@@ -27,6 +27,7 @@ body{
     align-items: center; */
     padding: 6%;
     padding-top: 1%;
+    cursor: url('imgs/sapceship.png'), pointer;
 }
 
 .el {
@@ -61,11 +62,24 @@ input {
 } */
 
 
-img:hover{
+.mainImgLarge:hover{
     border: 1px solid rgb(119, 3, 3);
     padding: 0px;
     border-radius: 5%;
     transition: 1s;
+    cursor: url('imgs/satelite.png'), pointer;
+    /* cursor: url('imgs/logo.png'), pointer; */
+    /* cursor: url('imgs/spaceship.png'), pointer; */
+
+}
+
+.mainImgSmall:hover{
+    border: 1px solid rgb(119, 3, 3);
+    padding: 0px;
+    border-radius: 5%;
+    transition: 1s;
+    cursor: url('imgs/logo.png'), pointer;
+
 }
 
 /* #sectionA {
