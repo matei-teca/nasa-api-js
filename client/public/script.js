@@ -91,6 +91,7 @@ const todayPostElement = (myData) => {
 	// rootEl.appendChild(divWow);
 
   input.addEventListener("change", function(e){
+    const imgEl = document.getElementById("mainImg");
     currDate = e.target.value;
     console.log(currDate);
     fetchData();
@@ -104,7 +105,13 @@ const todayPostElement = (myData) => {
         behavior: 'smooth'
       });
     }, notFirstTime ? 600 : 0)
+  })
 
+  if(!notFirstTime){
+    const elToLeave = document.querySelector(".mainImgLarge");
+    elToLeave.addEventListener("mouseout", () => {
+
+    console.log("works");
     setTimeout(function(){
       window.scrollTo({
         top: 3000,
@@ -113,14 +120,14 @@ const todayPostElement = (myData) => {
       });
 
       setTimeout(function(){
-        const imgEl = document.getElementById("mainImg");
         imgEl.className = "mainImgSmall";
         notFirstTime = true;
         imgSize = false;
         
       }, 100)
-    }, 3000)
+    }, 1000)
   })
+  }
 
   const imgEl = document.getElementById("mainImg");
 
