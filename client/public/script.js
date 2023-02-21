@@ -1,8 +1,9 @@
 let today = new Date();
 today = today.getFullYear() + "-" + today.getMonth()+1 + "-" + today.getDate();
 
-let currDate = new Date();
-currDate = currDate.getFullYear() + "-" + currDate.getMonth()+1 + "-" + currDate.getDate();
+// let currDate = new Date();
+// currDate = currDate.getFullYear() + "-" + currDate.getMonth()+1 + "-" + currDate.getDate();
+let currDate = new Date().toISOString().slice(0,10)
 
 let notFirstTime = false;
 let isFirstTime = true;
@@ -14,7 +15,7 @@ async function fetchData(){
 
   const response = await fetch(`https://api.nasa.gov/planetary/apod?date=${currDate}&api_key=${apiNasaKey}`);
   const data = await response.json();
-
+  
   console.log(data);
 
   todayPostElement(data);
